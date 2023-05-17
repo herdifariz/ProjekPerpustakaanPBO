@@ -30,6 +30,12 @@ public class Peminjaman extends javax.swing.JFrame {
         dc.isitabel();
         ComboBoxBuku();
         ComboBoxMhs();
+        
+        tfID.setEditable(false);
+        tfNama.setEditable(false);
+        tfNim.setEditable(false);
+        tfJudul.setEditable(false);
+        tfKode.setEditable(false);
     }
     
     public void ComboBoxBuku(){
@@ -153,12 +159,6 @@ public class Peminjaman extends javax.swing.JFrame {
         jLabel5.setText("Kode Buku");
 
         IDLabel.setText(" ");
-
-        tfID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfIDActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("ID");
 
@@ -311,10 +311,11 @@ public class Peminjaman extends javax.swing.JFrame {
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         MainMenu menu = new MainMenu();
+        menu.setTitle("Aplikasi Perpustakaan");
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
@@ -342,10 +343,6 @@ public class Peminjaman extends javax.swing.JFrame {
         dc.isitabel();
         dc.reset();
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void tfIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfIDActionPerformed
 
     private void cbMhsPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbMhsPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
@@ -438,7 +435,9 @@ public class Peminjaman extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Peminjaman().setVisible(true);
+                Peminjaman view = new Peminjaman();
+                view.setVisible(true);
+                view.setTitle("Peminjaman");
             }
         });
     }
@@ -509,19 +508,19 @@ public class Peminjaman extends javax.swing.JFrame {
     }
 
     public JTextField getTfNama() {
-        return tfID;
-    }
-
-    public void setTfNama(JTextField tfNama) {
-        this.tfID = tfNama;
-    }
-
-    public JTextField getTfNim() {
         return tfNama;
     }
 
+    public void setTfNama(JTextField tfNama) {
+        this.tfNama = tfNama;
+    }
+
+    public JTextField getTfNim() {
+        return tfNim;
+    }
+
     public void setTfNim(JTextField tfNim) {
-        this.tfNama = tfNim;
+        this.tfNim = tfNim;
     }
 
     public JTable getTabelPinjam() {

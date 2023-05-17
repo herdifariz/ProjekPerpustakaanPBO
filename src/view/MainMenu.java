@@ -103,26 +103,29 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBukuActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         Buku buku = new Buku();
+        buku.setTitle("Data Buku");
         buku.setVisible(true);
         buku.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnBukuActionPerformed
 
     private void btnMahasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMahasiswaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         Mahasiswa mhs = new Mahasiswa();
+        mhs.setTitle("Daa Mahasiswa");
         mhs.setVisible(true);
         mhs.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnMahasiswaActionPerformed
 
     private void btnPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPinjamActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         Peminjaman pinjam = new Peminjaman();
+        pinjam.setTitle("Data Peminjaman");
         pinjam.setVisible(true);
         pinjam.setLocationRelativeTo(this);
-        this.dispose();
     }//GEN-LAST:event_btnPinjamActionPerformed
 
     /**

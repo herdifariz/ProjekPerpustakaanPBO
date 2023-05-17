@@ -213,10 +213,11 @@ public class Mahasiswa extends javax.swing.JFrame {
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         MainMenu menu = new MainMenu();
+        menu.setTitle("Aplikasi Perpustakaan");
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
