@@ -158,6 +158,7 @@ public class MainMenu extends javax.swing.JFrame {
                 MainMenu menu = new MainMenu();
                 menu.setVisible(true);
                 menu.setLocationRelativeTo(null);
+                menu.setTitle("Aplikasi Perpustakaan");
             }
         });
     }

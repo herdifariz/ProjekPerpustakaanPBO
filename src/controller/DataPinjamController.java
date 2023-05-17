@@ -31,16 +31,18 @@ public class DataPinjamController {
     
     public void insert(){
         DataPinjam pinjam = new DataPinjam();
-        pinjam.setIdBuku(Integer.parseInt(frame.getTfKode().getText()));
-        pinjam.setIdMhs(Integer.parseInt(frame.getTfNim().getText()));
+//        pinjam.setIdBuku(Integer.parseInt(frame.getTfKode().getText()));
+//        pinjam.setIdMhs(Integer.parseInt(frame.getTfID().getText()));
+        pinjam.setIdBuku(frame.getTfKode().getText());
+        pinjam.setIdMhs(frame.getTfID().getText());
         impldatapinjam.insert(pinjam);
         
     }
     
     public void update(){
         DataPinjam dp = new DataPinjam();
-        dp.setIdBuku(Integer.parseInt(frame.getTfKode().getText()));
-        dp.setIdMhs(Integer.parseInt(frame.getTfNim().getText()));
+        dp.setIdBuku(frame.getTfKode().getText());
+        dp.setIdMhs(frame.getTfNim().getText());
         dp.setId(Integer.parseInt(frame.getIDLabel().getText()));
         impldatapinjam.update(dp);
     }
@@ -56,11 +58,7 @@ public class DataPinjamController {
         frame.getTfKode().setText(null);
         frame.getTfNama().setText(null);
         frame.getTfNim().setText(null);
+        frame.getTfID().setText(null);
     }
-    
-//    public void  isiComboBox(){
-//        DataBuku buku = new DataBuku();
-//        buku.setId(Integer.parseInt(frame.getCbBuku().addItem("id")));
-//    }
     
 }

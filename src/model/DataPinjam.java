@@ -10,8 +10,8 @@ package model;
  */
 public class DataPinjam {
     private Integer id;
-    private Integer idBuku;
-    private Integer idMhs;
+    private String idBuku;
+    private String idMhs;
     private String tglPinjam;
     private String tglKembali;
 
@@ -23,21 +23,39 @@ public class DataPinjam {
         this.id = id;
     }
 
-    public Integer getIdBuku() {
+//    public Integer getIdBuku() {
+//        return idBuku;
+//    }
+//
+//    public void setIdBuku(Integer idBuku) {
+//        this.idBuku = idBuku;
+//    }
+//
+//    public Integer getIdMhs() {
+//        return idMhs;
+//    }
+//
+//    public void setIdMhs(Integer idMhs) {
+//        this.idMhs = idMhs;
+//    }
+
+    public String getIdBuku() {
         return idBuku;
     }
 
-    public void setIdBuku(Integer idBuku) {
+    public void setIdBuku(String idBuku) {
         this.idBuku = idBuku;
     }
 
-    public Integer getIdMhs() {
+    public String getIdMhs() {
         return idMhs;
     }
 
-    public void setIdMhs(Integer idMhs) {
+    public void setIdMhs(String idMhs) {
         this.idMhs = idMhs;
     }
+    
+    
 
     public String getTglPinjam() {
         return tglPinjam;

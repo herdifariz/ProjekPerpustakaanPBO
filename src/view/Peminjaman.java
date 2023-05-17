@@ -220,9 +220,7 @@ public class Peminjaman extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,12 +237,15 @@ public class Peminjaman extends javax.swing.JFrame {
                                     .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfKode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfKode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(85, 85, 85))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -300,9 +301,9 @@ public class Peminjaman extends javax.swing.JFrame {
                     .addComponent(btnReset)
                     .addComponent(btnEdit)
                     .addComponent(btnDelete))
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -355,8 +356,9 @@ public class Peminjaman extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(query);
             
             while (rs.next()) {                
-                tfID.setText(rs.getString("nama"));
-                tfNama.setText(rs.getString("nim"));
+                tfNama.setText(rs.getString("nama"));
+                tfNim.setText(rs.getString("nim"));
+                tfID.setText(rs.getString("id"));
             }
         } catch (Exception e) {
         }
@@ -364,10 +366,30 @@ public class Peminjaman extends javax.swing.JFrame {
 
     private void TabelPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelPinjamMouseClicked
         // TODO add your handling code here:
+//        int baris = TabelPinjam.getSelectedRow();
+//        
+//        tfKode.setText(TabelPinjam.getValueAt(baris, 1).toString());
+//        tfNama.setText(TabelPinjam.getValueAt(baris, 2).toString());
+//        IDLabel.setText(TabelPinjam.getValueAt(baris, 0).toString());
+        
         int baris = TabelPinjam.getSelectedRow();
-        tfKode.setText(TabelPinjam.getValueAt(baris, 1).toString());
-        tfNama.setText(TabelPinjam.getValueAt(baris, 2).toString());
-        IDLabel.setText(TabelPinjam.getValueAt(baris, 0).toString());
+        String id = TabelPinjam.getValueAt(baris, 0).toString();
+        
+        String query = "SELECT * FROM peminjaman INNER JOIN buku ON peminjaman.id_buku = buku.id INNER JOIN mahasiswa ON peminjaman.id_mahasiswa = mahasiswa.id WHERE peminjaman.id="+id;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {                
+                tfNama.setText(rs.getString("mahasiswa.nama"));
+                tfNim.setText(rs.getString("mahasiswa.nim"));
+                tfID.setText(rs.getString("mahasiswa.id"));
+                tfKode.setText(rs.getString("buku.id"));
+                tfJudul.setText(rs.getString("buku.judul"));
+                IDLabel.setText(rs.getString("peminjaman.id"));
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_TabelPinjamMouseClicked
 
     private void cbBukuPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbBukuPopupMenuWillBecomeInvisible

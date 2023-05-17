@@ -59,8 +59,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="cbMhs" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="cbBuku" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -81,13 +79,18 @@
                               </Group>
                               <EmptySpace pref="64" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfJudul" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="tfKode" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel4" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tfJudul" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="tfKode" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="cbBuku" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
@@ -162,9 +165,9 @@
                   <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

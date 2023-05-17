@@ -20,7 +20,7 @@ public class DataPinjamDAO implements DataPinjamImplement{
     
     final String select = "SELECT * from peminjaman;";
     final String insert = "INSERT INTO peminjaman (id_buku, id_mahasiswa, tgl_pinjam, tgl_kembali) VALUES (?, ?, CURRENT_DATE, CURRENT_DATE+7);";
-    final String update = "UPDATE peminjaman set id_buku=?, id_mahasiswa=?, tgl_pinjam=?, tgl_kembali=? where id=?";
+    final String update = "UPDATE peminjaman set id_buku=?, id_mahasiswa=? where id=?";
     final String delete = "DELETE from peminjaman where id=?";
     public DataPinjamDAO(){
         connection = Connector.connection();
@@ -31,8 +31,8 @@ public class DataPinjamDAO implements DataPinjamImplement{
         PreparedStatement statement = null;
         try{
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, p.getIdBuku());
-            statement.setInt(2, p.getIdMhs());
+            statement.setString(1, p.getIdBuku());
+            statement.setString(2, p.getIdMhs());
 //            statement.setString(3, p.getTglPinjam());
 //            statement.setString(4, p.getTglKembali());
             statement.executeUpdate();
@@ -56,11 +56,11 @@ public class DataPinjamDAO implements DataPinjamImplement{
         PreparedStatement statement = null;
         try{
             statement = connection.prepareStatement(update);
-            statement.setInt(1, p.getIdBuku());
-            statement.setInt(2, p.getIdMhs());
-            statement.setString(3, p.getTglPinjam());
-            statement.setString(4, p.getTglKembali());
-            statement.setInt(5, p.getId());
+            statement.setString(1, p.getIdBuku());
+            statement.setString(2, p.getIdMhs());
+//            statement.setString(3, p.getTglPinjam());
+//            statement.setString(4, p.getTglKembali());
+            statement.setInt(3, p.getId());
             statement.executeUpdate();
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -97,13 +97,14 @@ public class DataPinjamDAO implements DataPinjamImplement{
         List<DataPinjam> dp = null;
         try{
             dp = new ArrayList<DataPinjam>();
+            String query = "SELECT * FROM peminjaman INNER JOIN buku ON peminjaman.id_buku = buku.id INNER JOIN mahasiswa ON peminjaman.id_mahasiswa = mahasiswa.id";
             Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(select);
+            ResultSet rs = st.executeQuery(query);
             while(rs.next()){
                 DataPinjam mhs = new DataPinjam();
-                mhs.setId(rs.getInt("id"));
-                mhs.setIdBuku(rs.getInt("id_buku"));
-                mhs.setIdMhs(rs.getInt("id_mahasiswa"));
+                mhs.setId(rs.getInt("peminjaman.id"));
+                mhs.setIdBuku(rs.getString("buku.judul"));
+                mhs.setIdMhs(rs.getString("mahasiswa.nama"));
                 mhs.setTglPinjam(rs.getString("tgl_pinjam"));
                 mhs.setTglKembali(rs.getString("tgl_kembali"));
                 dp.add(mhs);
@@ -116,36 +117,4 @@ public class DataPinjamDAO implements DataPinjamImplement{
         return dp;
     }
     
-//    public List<DataBuku> isiComboBox(){
-//        List<DataBuku> dp = null;
-//        try {
-//            dp = new ArrayList<DataBuku>();
-//            String query = "SELECT * FROM buku";
-//            Statement st = connection.createStatement();
-//            ResultSet rs = st.executeQuery(query);
-//            
-//            while (rs.next()) {
-//                DataBuku buku = new DataBuku();
-//                buku.setId(rs.getInt("id"));
-//                buku.setJudul(rs.getString("judul"));
-//                dp.add(buku);
-//            }
-//            
-//            
-////            while (rs.next()) {
-////                DataBuku buku = new DataBuku();
-////                buku.getCbBuku().addItem(rs.getString("nama"));
-////                dp.add(buku);
-////            }
-//            
-////            rs.last();
-////            int jumlahdata = rs.getRow();
-////            rs.first();
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataBukuDAO.class.getName()).log(Level.SEVERE, null,ex);
-//        }
-//        
-//        return dp;
-//    }
 }
