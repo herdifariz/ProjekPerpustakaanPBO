@@ -6,7 +6,9 @@ package koneksi;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.SQLException;
+import view.Login;
 
 /**
  *
@@ -14,7 +16,8 @@ import java.sql.SQLException;
  */
 public class Connector {
     
-    static Connection con;
+    public static Connection con;
+    public static Statement stm;
     
     public static Connection connection(){
         if(con==null){
@@ -24,6 +27,7 @@ public class Connector {
             data.setPassword("");
             try{
                 con = data.getConnection();
+                stm = con.createStatement();
                 System.out.println("Koneksi berhasil");
             }catch(SQLException ex){
                 ex.printStackTrace();

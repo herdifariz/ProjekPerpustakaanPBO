@@ -6,6 +6,7 @@ package controller;
 import java.util.List;
 import DAOData.DataBukuDAO;
 import DAOImplement.DataBukuImplement;
+import javax.swing.JOptionPane;
 import model.*;
 import view.Buku;
 /**
@@ -33,8 +34,12 @@ public class DataBukuController {
         buku.setJudul(frame.getTfJudul().getText());
         buku.setPengarang(frame.getTfPengarang().getText());
         buku.setPenerbit(frame.getTfPenerbit().getText());
-        buku.setTahun(Integer.parseInt(frame.getTfTahun().getText()));
-        impldatabuku.insert(buku);
+        buku.setTahun(frame.getTfTahun().getText());
+        if (buku.getJudul().isEmpty() || buku.getPengarang().isEmpty() || buku.getPenerbit().isEmpty() || buku.getTahun().isEmpty()){
+            JOptionPane.showMessageDialog(frame, "Silakan masukkan data", "Error", 0);
+        } else{
+           impldatabuku.insert(buku);        
+        }
         
     }
     
@@ -43,7 +48,7 @@ public class DataBukuController {
         dp.setJudul(frame.getTfJudul().getText());
         dp.setPengarang(frame.getTfPengarang().getText());
         dp.setPenerbit(frame.getTfPenerbit().getText());
-        dp.setTahun(Integer.parseInt(frame.getTfTahun().getText()));
+        dp.setTahun(frame.getTfTahun().getText());
         dp.setId(Integer.parseInt(frame.getIDLabel().getText()));
         impldatabuku.update(dp);
     }

@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author acer
@@ -26,6 +28,7 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnBuku = new javax.swing.JButton();
         btnMahasiswa = new javax.swing.JButton();
@@ -35,9 +38,32 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PERPUSTAKAAN");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(225, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(211, 211, 211))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        btnBuku.setBackground(new java.awt.Color(0, 102, 102));
+        btnBuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuku.setForeground(new java.awt.Color(255, 255, 255));
         btnBuku.setText("DATA BUKU");
         btnBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,6 +71,9 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnMahasiswa.setBackground(new java.awt.Color(0, 102, 102));
+        btnMahasiswa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMahasiswa.setForeground(new java.awt.Color(255, 255, 255));
         btnMahasiswa.setText("DATA MAHASISWA");
         btnMahasiswa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +81,9 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnPinjam.setBackground(new java.awt.Color(0, 102, 102));
+        btnPinjam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPinjam.setForeground(new java.awt.Color(255, 255, 255));
         btnPinjam.setText("PEMINJAMAN");
         btnPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,65 +91,59 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("LOG OUT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
+                .addComponent(btnBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(btnMahasiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBuku)
-                .addGap(136, 136, 136)
-                .addComponent(btnMahasiswa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPinjam)
-                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuku)
-                    .addComponent(btnMahasiswa)
-                    .addComponent(btnPinjam))
-                .addGap(75, 75, 75))
+                    .addComponent(btnBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMahasiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBukuActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Berhasil Logout", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
-        Buku buku = new Buku();
-        buku.setTitle("Data Buku");
-        buku.setVisible(true);
-        buku.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnBukuActionPerformed
-
-    private void btnMahasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMahasiswaActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        Mahasiswa mhs = new Mahasiswa();
-        mhs.setTitle("Daa Mahasiswa");
-        mhs.setVisible(true);
-        mhs.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnMahasiswaActionPerformed
+        Login log = new Login();
+        log.setVisible(true);
+        log.setLocationRelativeTo(null);
+        log.setTitle("Login");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPinjamActionPerformed
         // TODO add your handling code here:
@@ -127,6 +153,24 @@ public class MainMenu extends javax.swing.JFrame {
         pinjam.setVisible(true);
         pinjam.setLocationRelativeTo(this);
     }//GEN-LAST:event_btnPinjamActionPerformed
+
+    private void btnMahasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMahasiswaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Mahasiswa mhs = new Mahasiswa();
+        mhs.setTitle("Data Mahasiswa");
+        mhs.setVisible(true);
+        mhs.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnMahasiswaActionPerformed
+
+    private void btnBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBukuActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Buku buku = new Buku();
+        buku.setTitle("Data Buku");
+        buku.setVisible(true);
+        buku.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBukuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,5 +216,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnPinjam;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

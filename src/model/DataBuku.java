@@ -13,7 +13,7 @@ public class DataBuku {
     private String judul; 
     private String penerbit; 
     private String pengarang; 
-    private Integer tahun; 
+    private String tahun; 
 
     public Integer getId() {
         return id;
@@ -47,11 +47,11 @@ public class DataBuku {
         this.pengarang = pengarang;
     }
     
-    public Integer getTahun() {
+    public String getTahun() {
         return tahun;
     }
 
-    public void setTahun(Integer tahun) {
+    public void setTahun(String tahun) {
         this.tahun = tahun;
     }
     

@@ -6,14 +6,18 @@ package controller;
 import java.util.List;
 import DAOData.DataPinjamDAO;
 import DAOImplement.DataPinjamImplement;
+import java.sql.*;
+import javax.swing.JOptionPane;
 import model.*;
 import view.Peminjaman;
+import koneksi.Connector;
 
 /**
  *
  * @author acer
  */
 public class DataPinjamController {
+    Connection connection;
     Peminjaman frame;
     DataPinjamImplement impldatapinjam;
     List<DataPinjam> dp;
@@ -22,6 +26,7 @@ public class DataPinjamController {
         this.frame = frame;
         impldatapinjam = new DataPinjamDAO();
         dp = impldatapinjam.getAll();
+        connection = Connector.connection();
     }
     public void isitabel(){
         dp = impldatapinjam.getAll();
@@ -31,18 +36,20 @@ public class DataPinjamController {
     
     public void insert(){
         DataPinjam pinjam = new DataPinjam();
-//        pinjam.setIdBuku(Integer.parseInt(frame.getTfKode().getText()));
-//        pinjam.setIdMhs(Integer.parseInt(frame.getTfID().getText()));
         pinjam.setIdBuku(frame.getTfKode().getText());
         pinjam.setIdMhs(frame.getTfID().getText());
-        impldatapinjam.insert(pinjam);
+        if (pinjam.getIdBuku().isEmpty() || pinjam.getIdMhs().isEmpty()){
+            JOptionPane.showMessageDialog(frame, "Silakan masukkan data", "Error", 0);
+        } else {
+            impldatapinjam.insert(pinjam);
+        }
         
     }
     
     public void update(){
         DataPinjam dp = new DataPinjam();
         dp.setIdBuku(frame.getTfKode().getText());
-        dp.setIdMhs(frame.getTfNim().getText());
+        dp.setIdMhs(frame.getTfID().getText());
         dp.setId(Integer.parseInt(frame.getIDLabel().getText()));
         impldatapinjam.update(dp);
     }
@@ -59,6 +66,34 @@ public class DataPinjamController {
         frame.getTfNama().setText(null);
         frame.getTfNim().setText(null);
         frame.getTfID().setText(null);
+    }
+    
+    public void ComboBoxBuku(){
+        try {
+            String query = "SELECT * FROM buku";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {                
+                frame.getCbBuku().addItem(rs.getString("judul"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void ComboBoxMhs(){
+        try {
+            String query = "SELECT * FROM mahasiswa";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {                
+                frame.getCbMhs().addItem(rs.getString("nama"));
+            }
+           
+        } catch (SQLException e) {
+        }
     }
     
 }

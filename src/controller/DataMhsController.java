@@ -6,6 +6,7 @@ package controller;
 import java.util.List;
 import DAOData.DataMhsDAO;
 import DAOImplement.DataMhsImplement;
+import javax.swing.JOptionPane;
 import model.*;
 import view.Mahasiswa;
 
@@ -34,7 +35,11 @@ public class DataMhsController {
         mhs.setNim(frame.getTfNIM().getText());
         mhs.setNama(frame.getTfNama().getText());
         mhs.setJurusan(frame.getTfJurusan().getText());
-        impldatamhs.insert(mhs);
+        if (mhs.getNama().isEmpty() || mhs.getNim().isEmpty() || mhs.getJurusan().isEmpty()){
+            JOptionPane.showMessageDialog(frame, "Silakan masukkan data", "Error", 0);
+        } else {
+            impldatamhs.insert(mhs);
+        }
         
     }
     

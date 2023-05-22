@@ -33,7 +33,7 @@ public class DataBukuDAO implements DataBukuImplement{
             statement.setString(1, p.getJudul());
             statement.setString(2, p.getPengarang());
             statement.setString(3, p.getPenerbit());
-            statement.setInt(4, p.getTahun());
+            statement.setString(4, p.getTahun());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             while(rs.next()){
@@ -58,7 +58,7 @@ public class DataBukuDAO implements DataBukuImplement{
             statement.setString(1, p.getJudul());
             statement.setString(2, p.getPengarang());
             statement.setString(3, p.getPenerbit());
-            statement.setInt(4, p.getTahun());
+            statement.setString(4, p.getTahun());
             statement.setInt(5, p.getId());
             statement.executeUpdate();
         }catch(SQLException ex){
@@ -104,7 +104,7 @@ public class DataBukuDAO implements DataBukuImplement{
                 buku.setJudul(rs.getString("judul"));
                 buku.setPengarang(rs.getString("pengarang"));
                 buku.setPenerbit(rs.getString("penerbit"));
-                buku.setTahun(rs.getInt("tahun_terbit"));
+                buku.setTahun(rs.getString("tahun_terbit"));
                 dp.add(buku);
                 
             }

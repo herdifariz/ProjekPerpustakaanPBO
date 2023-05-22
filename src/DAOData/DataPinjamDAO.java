@@ -33,8 +33,6 @@ public class DataPinjamDAO implements DataPinjamImplement{
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, p.getIdBuku());
             statement.setString(2, p.getIdMhs());
-//            statement.setString(3, p.getTglPinjam());
-//            statement.setString(4, p.getTglKembali());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             while(rs.next()){
