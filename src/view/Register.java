@@ -18,10 +18,7 @@ import javax.swing.JTextField;
  * @author JIHAN PUTRI RATU S
  */
 public class Register extends javax.swing.JFrame {
-//    Connection con;
-//    Statement stat;
-//    ResultSet r;
-//    String sql;
+
     /**
      * Creates new form Register
      */
@@ -29,10 +26,7 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
         rc = new RegisterController(this);
-//        Connector DB = new Connector();
-//        DB.connection();
-//        con = Connector.con;
-//        stat = Connector.stm;
+
     }
 
     /**
@@ -203,6 +197,7 @@ public class Register extends javax.swing.JFrame {
          Login a = new Login();
             a.setVisible(true);
             a.setLocationRelativeTo(null);
+            a.setTitle("Login");
             this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 

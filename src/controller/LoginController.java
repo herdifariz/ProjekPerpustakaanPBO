@@ -55,17 +55,13 @@ public class LoginController {
                 if(Cekuser == null && cekpass == null){
                     String pesan = "USERNAME ATAU PASSWORD SALAH";
                     JOptionPane.showMessageDialog(null, pesan, "Message", JOptionPane.INFORMATION_MESSAGE);
-    //                this.dispose();
-    //                Login view = new Login();
-    //                view.setTitle("Login");
-    //                view.setVisible(true);
-    //                view.setLocationRelativeTo(null);
                 }else{
                     String pesan = "Login Berhasil";
                     JOptionPane.showMessageDialog(null, pesan, "Message", JOptionPane.INFORMATION_MESSAGE);
                     MainMenu menu = new MainMenu();
                     menu.setVisible(true);
                     menu.setLocationRelativeTo(null);
+                    menu.setTitle("Main Menu");
                     frame.dispose();
                 }
             

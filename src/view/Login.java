@@ -21,10 +21,7 @@ import controller.LoginController;
  * @author JIHAN PUTRI RATU S
  */
 public class Login extends javax.swing.JFrame {
-//    Connection con;
-//    Statement stat;
-//    ResultSet rs;
-//    String sql;
+
     
     /**
      * Creates new form Login
@@ -33,10 +30,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         lc = new LoginController(this);
-//        Connector DB = new Connector();
-//        DB.connection();
-//        con = Connector.con;
-//        stat = Connector.stm;
+
     }
 
     /**
